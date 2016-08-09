@@ -1,0 +1,15 @@
+body{
+    margin:0px;
+    padding:0px;
+    background: #BBDEFB;
+}
+#col1{
+}
+#col2{
+    position:absolute;
+    bottom:0px;
+}
+#messages{
+    overflow:scroll;
+    height:88%;
+}

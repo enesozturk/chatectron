@@ -1,0 +1,43 @@
+<head>
+	<title>Chat application</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="app.css">
+	<script>
+	window.$ = require("jquery");
+	$(function () {
+    var socket = require('socket.io-client')('http://localhost:3000');
+	$('input').focus();
+    $('form').submit(function () {
+        socket.emit('msg',$('input').val());
+        $('input').val('');
+		$('input').focus();
+        return false;
+    })
+    socket.on('msg',function(data){
+        $('#messages').append('<li class="list-group-item" style="overflow:auto; white-space:normal">'+data+'</li>');
+    	})
+	})
+	</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="messages">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Message</span>
+						<input type="text" class="form-control">
+						<span class="input-group-btn"><button class="btn btn-default" type="button">Button</button></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
