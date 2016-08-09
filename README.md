@@ -5,7 +5,7 @@ npm install
 ```
 Run the server
 ```shell
-noder server
+node server
 ```
 Run the app in another shell
 ```shell
