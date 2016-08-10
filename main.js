@@ -11,8 +11,9 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({minWidth : 800, minHeight : 570, frame:false});
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow = new BrowserWindow({minWidth : 400, minHeight : 600
+  });
+  mainWindow.loadURL('file://' + __dirname + '/index2.html');
   mainWindow.on('closed', function() {
   mainWindow = null;
   });

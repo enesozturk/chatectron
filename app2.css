@@ -1,0 +1,220 @@
+body {
+    background: #e2e2e2;
+    margin: 0px;
+    padding: 0px;
+    max-height: 600px;
+}
+#login {
+    position: absolute;
+    background: #424242;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.login.page {
+    background-color: #fff;
+}
+.login.page .form {
+    height: 100px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+.login.page .form .usernameInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    padding-bottom: 15px;
+    text-align: center;
+    width: 400px;
+}
+.login.page .title {
+    font-size: 200%;
+}
+.login.page .usernameInput {
+    font-size: 200%;
+    letter-spacing: 3px;
+}
+.login.page .title, .login.page .usernameInput {
+    color: #000;
+    font-weight: 100;
+}
+.left {
+    display: inline-block;
+    left: 0px;
+    overflow: hidden;
+    width: 150px;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    
+}
+.right {
+    position: fixed;
+    display: inline-block;
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    background: #FFF3E0;
+}
+
+#menageWindow {
+            display: inline-block;
+            margin-top: 0;
+            background: #263238;
+            width: 150px;
+            height: 35px;
+            padding: 6px 0;
+            border-bottom: 1px solid white;
+}
+.people {
+            display: inline-block;
+            height: 100vh;
+            overflow: auto;
+            width: 150px;
+            padding-bottom: 35px;
+            overflow: auto;
+            background: #263238;
+}
+#minimize {
+            position: relative;
+            display: inline-block;
+            width: 15px;
+            height: 5px;
+            background: #E0E0E0;
+            margin-left: 10px;
+            border-radius:5px;
+}
+
+#maximize {
+            position: relative;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #78909C;
+            margin-left: 5px;
+            border-radius:5px;
+}
+
+#maximize:hover {
+            background: #607D8B;
+            cursor: pointer;
+}
+
+#close {
+            position: relative;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #FF3D00;
+            border-radius:5px;
+            margin-left: 5px;
+}
+
+#close:hover {
+            background: #DD2C00;
+            cursor: pointer;
+}
+
+
+
+.people::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+            width: 5px;
+}
+
+.people::-webkit-scrollbar {
+            width: 5px;
+            border-radius: 10px;
+            background-color: #F5F5F5;
+}
+
+.people::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #616161;
+}
+
+
+.right::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+            width: 5px;
+}
+
+.right::-webkit-scrollbar {
+            width: 5px;
+            border-radius: 10px;
+            background-color: #F5F5F5;
+}
+
+.right::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #616161;
+}
+
+ul li {
+            width: 100%;
+            margin-bottom: 0px;
+            padding: 10px;
+}
+
+ul li:hover {
+            background: #757575;
+}
+
+#pic {
+            border: 1px solid black;
+            position: relative;
+            border-radius: 30px;
+            display: inline-block;
+            background: #bdbdbd;
+            width: 35px;
+            height: 35px;
+}
+
+#username {
+            color: #eee;
+            position: absolute;
+            margin-left: 25px;
+            display: inline-block;
+            width: 35;
+            height: 35px;
+            margin-top: 8px;
+}
+
+
+
+#messages {
+            display: inline-block;
+            overflow: auto;
+            top: 0px;
+            width: 100%;
+            margin-left: -150px;
+            padding-left: 150px;
+            height: 76vh;
+}
+#input {
+            display: inline-block;
+            width: 100vw;
+            height: 24vh;
+            bottom: 0px;
+            border-top: 2px solid white;
+            background: #e2e2e2;
+            padding: 15px;
+            
+            margin-left: -150px;
+            padding-left: 165px;
+            
+}
+#send{
+            float: right;
+            cursor: pointer;
+}
