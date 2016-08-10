@@ -6,22 +6,6 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
     <link rel="stylesheet" type="" href="app.css">
     <script>
-        function Close(){
-            window.open('','_parent',''); 
-            window.close();
-        }
-        function Maximize(){
-            window.moveTo(0, 0);
-            window.resizeTo(screen.availWidth, screen.availHeight);
-        }
-        function Minimize()
-        {
-            window.innerWidth = 100;
-            window.innerHeight = 100;
-            window.screenX = screen.width;
-            window.screenY = screen.height;
-            alwaysLowered = true;
-        }
         window.$ = require("jquery");
         $(function(){
         var socket = require('socket.io-client')('http://localhost:3000');
@@ -29,6 +13,14 @@
         var $right = $('.right');
         var $name = $('#name');
         var $sendname = $('#sendname');
+        var options = [{
+            title:"New client",
+            body:"Someone has connected",
+            icon: path.join(__dirname,"icon.png")
+        }]
+        function showNotify(){
+            new Notification(options[0].title,options[0]);
+        }
         $left.hide();
         $right.hide();
 
@@ -68,6 +60,7 @@
                 html += '<li><div id="pic"></div><div id="username">'+data[i]+'</div></li>';
             }
             $('#onlines').html(html);
+            showNotify();
         })
 	    })
         

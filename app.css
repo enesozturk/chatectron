@@ -60,16 +60,6 @@ body {
     height: 100vh;
     background: #FFF3E0;
 }
-
-#menageWindow {
-            display: inline-block;
-            margin-top: 0;
-            background: #263238;
-            width: 150px;
-            height: 35px;
-            padding: 6px 0;
-            border-bottom: 1px solid white;
-}
 .people {
             display: inline-block;
             height: 100vh;
@@ -79,46 +69,6 @@ body {
             overflow: auto;
             background: #263238;
 }
-#minimize {
-            position: relative;
-            display: inline-block;
-            width: 15px;
-            height: 5px;
-            background: #E0E0E0;
-            margin-left: 10px;
-            border-radius:5px;
-}
-
-#maximize {
-            position: relative;
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            background: #78909C;
-            margin-left: 5px;
-            border-radius:5px;
-}
-
-#maximize:hover {
-            background: #607D8B;
-            cursor: pointer;
-}
-
-#close {
-            position: relative;
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            background: #FF3D00;
-            border-radius:5px;
-            margin-left: 5px;
-}
-
-#close:hover {
-            background: #DD2C00;
-            cursor: pointer;
-}
-
 
 
 .people::-webkit-scrollbar-track {
