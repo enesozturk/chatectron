@@ -1,5 +1,6 @@
 ####Screenshot
 <img src="img/1.JPG" alt="Screenshot at Windows 10" width="50%"/>
+<img src="img/2.JPG" alt="Screenshot at Windows 10" width="50%"/>
 
 ## Using
 Install dependencies
