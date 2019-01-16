@@ -9,7 +9,8 @@ import css from './style/main.scss'
 
 class CheckLoginComp extends React.PureComponent {
     render() {
-        if (this.props.user.username) return <ChatRoom />
+        const user = localStorage.getItem('user')
+        if (user) return <ChatRoom />
         else return <Login />
     }
 }

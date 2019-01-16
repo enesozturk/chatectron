@@ -92,7 +92,8 @@
 	    _createClass(CheckLoginComp, [{
 	        key: 'render',
 	        value: function render() {
-	            if (this.props.user.username) return _react2.default.createElement(_ChatRoom2.default, null);else return _react2.default.createElement(_Login2.default, null);
+	            var user = localStorage.getItem('user');
+	            if (user) return _react2.default.createElement(_ChatRoom2.default, null);else return _react2.default.createElement(_Login2.default, null);
 	        }
 	    }]);
 	
@@ -27525,6 +27526,7 @@
 	
 	        _this.handleStartChat = function () {
 	            _this.props.login(_this.state.username.value);
+	            localStorage.setItem('user', _this.state.username.value);
 	        };
 	
 	        _this.handleOnChange = function (e) {
@@ -27610,19 +27612,31 @@
 	    _inherits(ChatRoom, _Component);
 	
 	    function ChatRoom() {
+	        var _ref;
+	
+	        var _temp, _this, _ret;
+	
 	        _classCallCheck(this, ChatRoom);
 	
-	        return _possibleConstructorReturn(this, (ChatRoom.__proto__ || Object.getPrototypeOf(ChatRoom)).apply(this, arguments));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ChatRoom.__proto__ || Object.getPrototypeOf(ChatRoom)).call.apply(_ref, [this].concat(args))), _this), _this.componentWillMount = function () {
+	            var username = localStorage.getItem('user');
+	            _this.props.login(username);
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 	
 	    _createClass(ChatRoom, [{
 	        key: 'render',
 	        value: function render() {
+	            var username = this.props.user.username;
 	            return _react2.default.createElement(
 	                'div',
 	                null,
 	                'I\'m ',
-	                this.props.user.username
+	                username
 	            );
 	        }
 	    }]);
@@ -27636,7 +27650,13 @@
 	    };
 	};
 	
-	var mapDispatchToProps = {};
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        login: function login(payload) {
+	            return dispatch({ type: "LOGIN", payload: payload });
+	        }
+	    };
+	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ChatRoom);
 

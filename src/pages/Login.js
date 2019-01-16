@@ -11,6 +11,7 @@ export class Login extends Component {
 
     handleStartChat = () => {
         this.props.login(this.state.username.value)
+        localStorage.setItem('user', this.state.username.value)
     }
 
     handleOnChange = e => {
@@ -37,8 +38,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    login: payload=>
-    dispatch({type:"LOGIN", payload})
+    login: payload =>
+        dispatch({ type: "LOGIN", payload })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
