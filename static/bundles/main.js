@@ -27544,14 +27544,14 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'login login-page' },
+	                { className: 'page page--login' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'form' },
 	                    _react2.default.createElement(
 	                        'span',
 	                        { className: 'title' },
-	                        'What\'s your nickname?'
+	                        'What\'s your name?'
 	                    ),
 	                    _react2.default.createElement('input', { name: 'username', value: this.state.username.value, onChange: this.handleOnChange, className: 'input input--username', type: 'text', maxLength: '25', placeholder: 'Type an username to start chat...' }),
 	                    _react2.default.createElement(
@@ -27600,6 +27600,12 @@
 	
 	var _reactRedux = __webpack_require__(17);
 	
+	var _Messages = __webpack_require__(75);
+	
+	var _Messages2 = _interopRequireDefault(_Messages);
+	
+	var _Users = __webpack_require__(76);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27634,9 +27640,9 @@
 	            var username = this.props.user.username;
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                'I\'m ',
-	                username
+	                { className: 'page page--chat' },
+	                _react2.default.createElement(_Users.Users, null),
+	                _react2.default.createElement(_Messages2.default, null)
 	            );
 	        }
 	    }]);
@@ -27695,7 +27701,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Nunito:300,400);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-family: 'Nunito', sans-serif !important;\n  -webkit-font-smoothing: antialiased;\n  vertical-align: baseline;\n  outline: none; }\n\n.login {\n  width: 100%;\n  height: 100%;\n  background: #f9f9ff;\n  background: -moz-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: -webkit-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: linear-gradient(to right, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9ff', endColorstr='#f4f5ff', GradientType=1);\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .login .form {\n    width: 500px;\n    min-width: 350px;\n    height: 300px;\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    .login .form * {\n      margin-top: 1em; }\n    .login .form .title {\n      font-weight: 400;\n      font-size: 2.4em; }\n    .login .form .input.input--username {\n      background: white;\n      height: 50px;\n      width: 100%;\n      border-radius: 25px;\n      -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      box-sizing: border-box;\n      padding: 0 1em;\n      font-size: 1.6em; }\n      .login .form .input.input--username:focus {\n        outline: none; }\n    .login .form .button.button--start-chat {\n      width: 50%;\n      height: 50px;\n      color: white;\n      font-size: 1.6em;\n      border-radius: 25px;\n      -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n      background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%); }\n      .login .form .button.button--start-chat:hover {\n        background-position: right center; }\n", ""]);
+	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-family: 'Nunito', sans-serif !important;\n  -webkit-font-smoothing: antialiased;\n  vertical-align: baseline;\n  outline: none; }\n\n.page {\n  width: 100%;\n  height: 100%;\n  background: #f9f9ff;\n  background: -moz-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: -webkit-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: linear-gradient(to right, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9ff', endColorstr='#f4f5ff', GradientType=1);\n  display: flex; }\n  .page.page--login {\n    justify-content: center;\n    align-items: center; }\n    .page.page--login .form {\n      width: 500px;\n      min-width: 350px;\n      height: 300px;\n      display: flex;\n      flex-direction: column;\n      align-items: center; }\n      .page.page--login .form * {\n        margin-top: 1em; }\n      .page.page--login .form .title {\n        font-weight: 400;\n        font-size: 2.4em; }\n      .page.page--login .form .input.input--username {\n        background: white;\n        height: 50px;\n        width: 100%;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-sizing: border-box;\n        padding: 0 1em;\n        font-size: 1.4em; }\n        .page.page--login .form .input.input--username:focus {\n          outline: none; }\n      .page.page--login .form .button.button--start-chat {\n        width: 50%;\n        height: 50px;\n        color: white;\n        font-size: 1.6em;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%); }\n        .page.page--login .form .button.button--start-chat:hover {\n          background-position: right center; }\n  .page.page--chat {\n    background: rgba(0, 0, 0, 0.8);\n    display: flex;\n    flex-direction: row; }\n    .page.page--chat .users {\n      position: relative;\n      flex-direction: row;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      flex: 1;\n      max-width: 260px; }\n      .page.page--chat .users .user-list {\n        flex: 1;\n        max-width: 260px;\n        background: rgba(50, 170, 218, 0.85);\n        display: flex;\n        flex-direction: column; }\n    .page.page--chat .messages {\n      background: white;\n      flex: 1;\n      min-width: 260px; }\n", ""]);
 	
 	// exports
 
@@ -28007,6 +28013,157 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Messages = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(22);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _reactRedux = __webpack_require__(17);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Messages = exports.Messages = function (_Component) {
+	    _inherits(Messages, _Component);
+	
+	    function Messages() {
+	        _classCallCheck(this, Messages);
+	
+	        return _possibleConstructorReturn(this, (Messages.__proto__ || Object.getPrototypeOf(Messages)).apply(this, arguments));
+	    }
+	
+	    _createClass(Messages, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'messages' },
+	                _react2.default.createElement('div', { className: 'message-list' }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'message-input-container' },
+	                    _react2.default.createElement('input', { type: 'text', className: 'message-input' })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Messages;
+	}(_react.Component);
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {};
+	};
+	
+	var mapDispatchToProps = {};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Messages);
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Users = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(22);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _reactRedux = __webpack_require__(17);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Users = exports.Users = function (_Component) {
+	    _inherits(Users, _Component);
+	
+	    function Users() {
+	        _classCallCheck(this, Users);
+	
+	        return _possibleConstructorReturn(this, (Users.__proto__ || Object.getPrototypeOf(Users)).apply(this, arguments));
+	    }
+	
+	    _createClass(Users, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'users' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'user-list' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Berkay'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            '\u0130rem'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Burak'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Users;
+	}(_react.Component);
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {};
+	};
+	
+	var mapDispatchToProps = {};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Users);
 
 /***/ })
 /******/ ]);

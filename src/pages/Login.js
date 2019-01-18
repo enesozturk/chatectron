@@ -22,9 +22,9 @@ export class Login extends Component {
 
     render() {
         return (
-            <div className="login login-page">
+            <div className="page page--login">
                 <div className="form">
-                    <span className="title">What's your nickname?</span>
+                    <span className="title">What's your name?</span>
                     <input name="username" value={this.state.username.value} onChange={this.handleOnChange} className="input input--username" type="text" maxLength="25" placeholder="Type an username to start chat..." />
                     <button onClick={this.handleStartChat} className="button button--start-chat">Sign In</button>
                 </div>

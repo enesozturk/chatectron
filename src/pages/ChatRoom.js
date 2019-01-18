@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Messages from './chatroom/Messages'
+import { Users } from './chatroom/Users';
+
 export class ChatRoom extends Component {
 
     componentWillMount = () => {
@@ -8,12 +11,12 @@ export class ChatRoom extends Component {
         this.props.login(username)
     }
 
-
     render() {
         const username = this.props.user.username
         return (
-            <div>
-                I'm {username}
+            <div className="page page--chat">
+                <Users />
+                <Messages />
             </div>
         )
     }

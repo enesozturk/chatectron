@@ -5,7 +5,7 @@
     "author": "Enes Ozturk <enesozturk.d@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "electron main.js",
+        "start": "electron main.js --enable-transparent-visuals --disable-gpu .",
         "win32": "electron-packager . myApp --platform=win32 --arch=ia32",
         "win64": "electron-packager . myApp --platform=win32 --arch=x64",
         "linux32": "electron-packager . myApp --platform=linux --arch=ia32",
