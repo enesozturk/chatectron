@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
+import TopBar from './components/users/TopBar'
+import Search from './components/users/Search'
+import Tabs from './components/users/Tabs'
+import UserList from './components/users/UserList'
 
 export class Users extends Component {
 
     render() {
         return (
             <div className="users">
-                <div className="user-list">
-                    <ul>
-                        <li>Berkay</li>
-                        <li>İrem</li>
-                        <li>Burak</li>
-                    </ul>
-                </div>
-
+                <TopBar />
+                <Search />
+                <Tabs />
+                <UserList />
             </div>
         )
     }
