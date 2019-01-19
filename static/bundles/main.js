@@ -27683,19 +27683,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(22);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
 	var _reactRedux = __webpack_require__(17);
 	
-	var _call = __webpack_require__(72);
+	var _TopBar = __webpack_require__(93);
 	
-	var _call2 = _interopRequireDefault(_call);
+	var _TopBar2 = _interopRequireDefault(_TopBar);
 	
-	var _videoCall = __webpack_require__(74);
+	var _MessageList = __webpack_require__(94);
 	
-	var _videoCall2 = _interopRequireDefault(_videoCall);
+	var _MessageList2 = _interopRequireDefault(_MessageList);
+	
+	var _Input = __webpack_require__(95);
+	
+	var _Input2 = _interopRequireDefault(_Input);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27720,31 +27720,9 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'messages' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'top-bar' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'username' },
-	                        _react2.default.createElement(
-	                            'span',
-	                            null,
-	                            'Berkay Akbulut'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'user-call-icons' },
-	                        _react2.default.createElement(_call2.default, { size: 30 }),
-	                        _react2.default.createElement(_videoCall2.default, { size: 30 })
-	                    )
-	                ),
-	                _react2.default.createElement('div', { className: 'message-list' }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'input-container' },
-	                    _react2.default.createElement('input', { type: 'text', placeholder: 'Type your message here...', className: 'message-input' })
-	                )
+	                _react2.default.createElement(_TopBar2.default, null),
+	                _react2.default.createElement(_MessageList2.default, null),
+	                _react2.default.createElement(_Input2.default, null)
 	            );
 	        }
 	    }]);
@@ -28513,7 +28491,7 @@
 	                    _react2.default.createElement(
 	                        "li",
 	                        null,
-	                        _react2.default.createElement("img", { src: "./static/images/enes.jpg", alt: "" }),
+	                        _react2.default.createElement("img", { src: "./static/images/burak.jpg", alt: "" }),
 	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "name-and-last-message" },
@@ -28579,7 +28557,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Nunito:300,400);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-family: 'Nunito', sans-serif !important;\n  -webkit-font-smoothing: antialiased;\n  vertical-align: baseline;\n  outline: none; }\n\n.page {\n  width: 100%;\n  height: 100%;\n  background: #f9f9ff;\n  background: -moz-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: -webkit-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: linear-gradient(to right, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9ff', endColorstr='#f4f5ff', GradientType=1);\n  display: flex; }\n  .page.page--login {\n    justify-content: center;\n    align-items: center; }\n    .page.page--login .form {\n      width: 500px;\n      min-width: 350px;\n      height: 300px;\n      display: flex;\n      flex-direction: column;\n      align-items: center; }\n      .page.page--login .form * {\n        margin-top: 1em; }\n      .page.page--login .form .title {\n        font-weight: 400;\n        font-size: 2.4em; }\n      .page.page--login .form .input.input--username {\n        background: white;\n        height: 50px;\n        width: 100%;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-sizing: border-box;\n        padding: 0 1em;\n        font-size: 1.4em; }\n        .page.page--login .form .input.input--username:focus {\n          outline: none; }\n      .page.page--login .form .button.button--start-chat {\n        width: 50%;\n        height: 50px;\n        color: white;\n        font-size: 1.6em;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%); }\n        .page.page--login .form .button.button--start-chat:hover {\n          background-position: right center; }\n  .page.page--chat {\n    background: rgba(0, 0, 0, 0.8);\n    display: flex;\n    flex-direction: row; }\n    .page.page--chat .users {\n      position: relative;\n      flex-direction: row;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      flex: 1;\n      max-width: 300px;\n      z-index: 10;\n      background: #88d9f7;\n      background: -moz-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -webkit-gradient(left top, left bottom, color-stop(0%, #88d9f7), color-stop(86%, #2597c4), color-stop(100%, #2597c4));\n      background: -webkit-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -o-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -ms-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: linear-gradient(to bottom, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#88d9f7', endColorstr='#2597c4', GradientType=0); }\n      .page.page--chat .users .top-bar {\n        display: flex;\n        flex-direction: row;\n        box-sizing: border-box;\n        justify-content: space-between;\n        padding: 1em; }\n        .page.page--chat .users .top-bar .brand-name {\n          text-transform: uppercase;\n          font-weight: bold;\n          font-size: 1.2em;\n          color: white; }\n        .page.page--chat .users .top-bar .top-bar--icons {\n          justify-self: flex-end; }\n          .page.page--chat .users .top-bar .top-bar--icons svg {\n            color: white;\n            cursor: pointer; }\n            .page.page--chat .users .top-bar .top-bar--icons svg:first-child {\n              margin-right: .5em; }\n            .page.page--chat .users .top-bar .top-bar--icons svg.add {\n              box-sizing: border-box;\n              padding: 5px;\n              border-radius: 50%;\n              background: white;\n              color: #32aada; }\n      .page.page--chat .users .search-box {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        box-sizing: border-box;\n        padding: 1em; }\n        .page.page--chat .users .search-box input {\n          background: rgba(0, 0, 0, 0.05);\n          box-sizing: border-box;\n          padding: .5em;\n          border-radius: 5px;\n          width: 90%;\n          color: white; }\n          .page.page--chat .users .search-box input:focus::-webkit-input-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus:-moz-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus::-moz-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus:-ms-input-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:not(:focus)::-webkit-input-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus):-moz-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus)::-moz-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus):-ms-input-placeholder {\n            color: #579bb5; }\n      .page.page--chat .users .tabs {\n        display: flex;\n        flex-direction: row;\n        justify-content: space-around;\n        box-sizing: border-box;\n        padding: .5em 1em;\n        color: white;\n        font-size: 1.4em; }\n        .page.page--chat .users .tabs svg {\n          cursor: pointer;\n          color: #579bb5; }\n          .page.page--chat .users .tabs svg.active {\n            color: white; }\n      .page.page--chat .users .user-list {\n        flex: 1;\n        display: flex;\n        flex-direction: column; }\n        .page.page--chat .users .user-list ul {\n          height: 100%; }\n          .page.page--chat .users .user-list ul li {\n            height: 80px;\n            display: flex;\n            flex-direction: row;\n            align-items: center;\n            box-sizing: border-box;\n            padding-left: 1em;\n            cursor: pointer; }\n            .page.page--chat .users .user-list ul li:hover {\n              background: rgba(0, 0, 0, 0.05); }\n            .page.page--chat .users .user-list ul li.active {\n              background: rgba(0, 0, 0, 0.1); }\n            .page.page--chat .users .user-list ul li img {\n              width: 40px;\n              height: 40px;\n              border-radius: 50%; }\n              .page.page--chat .users .user-list ul li img:first-child {\n                margin-right: 1em; }\n            .page.page--chat .users .user-list ul li .name-and-last-message {\n              display: flex;\n              flex-direction: column;\n              width: calc(100% - 100px); }\n              .page.page--chat .users .user-list ul li .name-and-last-message span.name {\n                box-sizing: border-box;\n                color: white;\n                font-size: 1em; }\n              .page.page--chat .users .user-list ul li .name-and-last-message span.last-message {\n                box-sizing: border-box;\n                color: rgba(74, 74, 74, 0.8);\n                font-size: .8em; }\n            .page.page--chat .users .user-list ul li .unseen-messages {\n              width: 20px;\n              height: 20px;\n              background: white;\n              color: #12D8FA;\n              border-radius: 50%;\n              display: flex;\n              justify-content: center;\n              align-items: center;\n              font-size: 10px; }\n              .page.page--chat .users .user-list ul li .unseen-messages.all-seen {\n                opacity: 0; }\n    .page.page--chat .messages {\n      background: white;\n      flex: 1;\n      min-width: 260px;\n      display: flex;\n      flex-direction: column; }\n      .page.page--chat .messages .top-bar {\n        display: flex;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n        flex: 1;\n        max-height: 70px;\n        box-sizing: border-box;\n        padding: 1em;\n        z-index: 9;\n        -webkit-box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75); }\n        .page.page--chat .messages .top-bar .username {\n          font-size: 1.2em;\n          color: black; }\n        .page.page--chat .messages .top-bar .user-call-icons svg {\n          width: 35px;\n          height: 35px;\n          box-sizing: border-box;\n          padding: 5px;\n          border-radius: 50%;\n          background: #32aada;\n          color: white;\n          cursor: pointer;\n          border: 1px solid #6cbffa; }\n          .page.page--chat .messages .top-bar .user-call-icons svg:first-child {\n            margin-right: 1em; }\n      .page.page--chat .messages .message-list {\n        flex: 1; }\n      .page.page--chat .messages .input-container {\n        display: flex;\n        flex-direction: row;\n        flex: 1;\n        max-height: 65px;\n        background: #eaeaea;\n        box-sizing: border-box;\n        padding: 1em; }\n        .page.page--chat .messages .input-container input {\n          flex: 1;\n          background: transparent;\n          color: #092935; }\n", ""]);
+	exports.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-family: 'Nunito', sans-serif !important;\n  -webkit-font-smoothing: antialiased;\n  vertical-align: baseline;\n  outline: none; }\n\n.page {\n  width: 100%;\n  height: 100%;\n  background: #f9f9ff;\n  background: -moz-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: -webkit-linear-gradient(left, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  background: linear-gradient(to right, #f9f9ff 0%, #ffffff 48%, #f4f5ff 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9ff', endColorstr='#f4f5ff', GradientType=1);\n  display: flex; }\n  .page.page--login {\n    justify-content: center;\n    align-items: center; }\n    .page.page--login .form {\n      width: 500px;\n      min-width: 350px;\n      height: 300px;\n      display: flex;\n      flex-direction: column;\n      align-items: center; }\n      .page.page--login .form * {\n        margin-top: 1em; }\n      .page.page--login .form .title {\n        font-weight: 400;\n        font-size: 2.4em; }\n      .page.page--login .form .input.input--username {\n        background: white;\n        height: 50px;\n        width: 100%;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-sizing: border-box;\n        padding: 0 1em;\n        font-size: 1.4em; }\n        .page.page--login .form .input.input--username:focus {\n          outline: none; }\n      .page.page--login .form .button.button--start-chat {\n        width: 50%;\n        height: 50px;\n        color: white;\n        font-size: 1.6em;\n        border-radius: 25px;\n        -webkit-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 26px -10px rgba(0, 0, 0, 0.75);\n        background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%); }\n        .page.page--login .form .button.button--start-chat:hover {\n          background-position: right center; }\n  .page.page--chat {\n    background: rgba(0, 0, 0, 0.8);\n    display: flex;\n    flex-direction: row; }\n    .page.page--chat .users {\n      position: relative;\n      flex-direction: row;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      flex: 1;\n      max-width: 300px;\n      z-index: 10;\n      background: #88d9f7;\n      background: -moz-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -webkit-gradient(left top, left bottom, color-stop(0%, #88d9f7), color-stop(86%, #2597c4), color-stop(100%, #2597c4));\n      background: -webkit-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -o-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: -ms-linear-gradient(top, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      background: linear-gradient(to bottom, #88d9f7 0%, #2597c4 86%, #2597c4 100%);\n      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#88d9f7', endColorstr='#2597c4', GradientType=0); }\n      .page.page--chat .users .top-bar {\n        display: flex;\n        flex-direction: row;\n        box-sizing: border-box;\n        justify-content: space-between;\n        padding: 1em; }\n        .page.page--chat .users .top-bar .brand-name {\n          text-transform: uppercase;\n          font-weight: bold;\n          font-size: 1.2em;\n          color: white; }\n        .page.page--chat .users .top-bar .top-bar--icons {\n          justify-self: flex-end; }\n          .page.page--chat .users .top-bar .top-bar--icons svg {\n            color: white;\n            cursor: pointer; }\n            .page.page--chat .users .top-bar .top-bar--icons svg:first-child {\n              margin-right: .5em; }\n            .page.page--chat .users .top-bar .top-bar--icons svg.add {\n              box-sizing: border-box;\n              padding: 5px;\n              border-radius: 50%;\n              background: white;\n              color: #32aada; }\n      .page.page--chat .users .search-box {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        box-sizing: border-box;\n        padding: 1em; }\n        .page.page--chat .users .search-box input {\n          background: rgba(0, 0, 0, 0.05);\n          box-sizing: border-box;\n          padding: .5em;\n          border-radius: 5px;\n          width: 90%;\n          color: white; }\n          .page.page--chat .users .search-box input:focus::-webkit-input-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus:-moz-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus::-moz-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:focus:-ms-input-placeholder {\n            color: #e9e9e9; }\n          .page.page--chat .users .search-box input:not(:focus)::-webkit-input-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus):-moz-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus)::-moz-placeholder {\n            color: #579bb5; }\n          .page.page--chat .users .search-box input:not(:focus):-ms-input-placeholder {\n            color: #579bb5; }\n      .page.page--chat .users .tabs {\n        display: flex;\n        flex-direction: row;\n        justify-content: space-around;\n        box-sizing: border-box;\n        padding: .5em 1em;\n        color: white;\n        font-size: 1.4em; }\n        .page.page--chat .users .tabs svg {\n          cursor: pointer;\n          color: #579bb5; }\n          .page.page--chat .users .tabs svg.active {\n            color: white; }\n      .page.page--chat .users .user-list {\n        flex: 1;\n        display: flex;\n        flex-direction: column; }\n        .page.page--chat .users .user-list ul {\n          height: 100%; }\n          .page.page--chat .users .user-list ul li {\n            height: 80px;\n            display: flex;\n            flex-direction: row;\n            align-items: center;\n            box-sizing: border-box;\n            padding-left: 1em;\n            cursor: pointer; }\n            .page.page--chat .users .user-list ul li:hover {\n              background: rgba(0, 0, 0, 0.05); }\n            .page.page--chat .users .user-list ul li.active {\n              background: rgba(0, 0, 0, 0.1); }\n            .page.page--chat .users .user-list ul li img {\n              width: 40px;\n              height: 40px;\n              border-radius: 50%; }\n              .page.page--chat .users .user-list ul li img:first-child {\n                margin-right: 1em; }\n            .page.page--chat .users .user-list ul li .name-and-last-message {\n              display: flex;\n              flex-direction: column;\n              width: calc(100% - 100px); }\n              .page.page--chat .users .user-list ul li .name-and-last-message span.name {\n                box-sizing: border-box;\n                color: white;\n                font-size: 1em; }\n              .page.page--chat .users .user-list ul li .name-and-last-message span.last-message {\n                box-sizing: border-box;\n                color: rgba(74, 74, 74, 0.8);\n                font-size: .8em; }\n            .page.page--chat .users .user-list ul li .unseen-messages {\n              width: 20px;\n              height: 20px;\n              background: white;\n              color: #12D8FA;\n              border-radius: 50%;\n              display: flex;\n              justify-content: center;\n              align-items: center;\n              font-size: 10px; }\n              .page.page--chat .users .user-list ul li .unseen-messages.all-seen {\n                opacity: 0; }\n    .page.page--chat .messages {\n      background: white;\n      flex: 1;\n      min-width: 260px;\n      display: flex;\n      flex-direction: column; }\n      .page.page--chat .messages .top-bar {\n        display: flex;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n        flex: 1;\n        max-height: 70px;\n        box-sizing: border-box;\n        padding: 1em;\n        z-index: 9;\n        -webkit-box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75);\n        -moz-box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75);\n        box-shadow: 0px 0px 16px -4px rgba(0, 0, 0, 0.75); }\n        .page.page--chat .messages .top-bar .username {\n          font-size: 1.2em;\n          color: black; }\n        .page.page--chat .messages .top-bar .user-call-icons svg {\n          width: 35px;\n          height: 35px;\n          box-sizing: border-box;\n          padding: 5px;\n          border-radius: 50%;\n          background: #32aada;\n          color: white;\n          cursor: pointer;\n          border: 1px solid #6cbffa; }\n          .page.page--chat .messages .top-bar .user-call-icons svg:first-child {\n            margin-right: 1em; }\n      .page.page--chat .messages .message-list {\n        flex: 1;\n        display: flex;\n        flex-direction: column; }\n        .page.page--chat .messages .message-list .message {\n          display: flex;\n          flex-direction: row;\n          box-sizing: border-box;\n          padding: 0 1em; }\n          .page.page--chat .messages .message-list .message.from-you {\n            justify-content: flex-start; }\n          .page.page--chat .messages .message-list .message.from-me {\n            justify-content: flex-end; }\n            .page.page--chat .messages .message-list .message.from-me .message-container p {\n              color: white;\n              background: #35a2cd; }\n          .page.page--chat .messages .message-list .message :first-child {\n            margin-right: .8em; }\n          .page.page--chat .messages .message-list .message img {\n            width: 35px;\n            height: 35px;\n            border-radius: 50%;\n            align-self: flex-end; }\n          .page.page--chat .messages .message-list .message .message-container {\n            box-sizing: border-box;\n            padding: .5em;\n            width: calc(100% - 200px); }\n            .page.page--chat .messages .message-list .message .message-container p {\n              width: 100%;\n              box-sizing: border-box;\n              padding: 1em;\n              border-radius: 5px;\n              background: #e2e2e2; }\n      .page.page--chat .messages .input-container {\n        display: flex;\n        flex-direction: row;\n        flex: 1;\n        max-height: 65px;\n        background: #eaeaea;\n        box-sizing: border-box;\n        padding: 1em; }\n        .page.page--chat .messages .input-container input {\n          flex: 1;\n          background: transparent;\n          color: #092935; }\n        .page.page--chat .messages .input-container .input-buttons svg {\n          box-sizing: border-box;\n          border-radius: 50%;\n          color: gray;\n          cursor: pointer; }\n          .page.page--chat .messages .input-container .input-buttons svg:last-child {\n            background: #32aada;\n            color: white;\n            padding: 8px;\n            width: 35px;\n            height: 35px; }\n          .page.page--chat .messages .input-container .input-buttons svg:not(:last-child) {\n            margin-right: .5em; }\n", ""]);
 	
 	// exports
 
@@ -28891,6 +28869,388 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactIconBase = __webpack_require__(73);
+	
+	var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MdAttachFile = function MdAttachFile(props) {
+	    return _react2.default.createElement(
+	        _reactIconBase2.default,
+	        _extends({ viewBox: '0 0 40 40' }, props),
+	        _react2.default.createElement(
+	            'g',
+	            null,
+	            _react2.default.createElement('path', { d: 'm27.5 10h2.5v19.1c0 5.1-4.1 9.3-9.1 9.3s-9.3-4.2-9.3-9.3v-20.7c0-3.7 3.1-6.8 6.8-6.8s6.6 3.1 6.6 6.8v17.5c0 2.2-1.9 4.1-4.1 4.1s-4.3-1.9-4.3-4.1v-15.9h2.5v15.9c0 0.9 0.8 1.6 1.8 1.6s1.6-0.7 1.6-1.6v-17.5c0-2.3-1.9-4.3-4.1-4.3s-4.3 2-4.3 4.3v20.7c0 3.7 3.1 6.8 6.8 6.8s6.6-3.1 6.6-6.8v-19.1z' })
+	        )
+	    );
+	};
+	
+	exports.default = MdAttachFile;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactIconBase = __webpack_require__(73);
+	
+	var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MdSend = function MdSend(props) {
+	    return _react2.default.createElement(
+	        _reactIconBase2.default,
+	        _extends({ viewBox: '0 0 40 40' }, props),
+	        _react2.default.createElement(
+	            'g',
+	            null,
+	            _react2.default.createElement('path', { d: 'm3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z' })
+	        )
+	    );
+	};
+	
+	exports.default = MdSend;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactIconBase = __webpack_require__(73);
+	
+	var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MdFace = function MdFace(props) {
+	    return _react2.default.createElement(
+	        _reactIconBase2.default,
+	        _extends({ viewBox: '0 0 40 40' }, props),
+	        _react2.default.createElement(
+	            'g',
+	            null,
+	            _react2.default.createElement('path', { d: 'm20 33.4c7.3 0 13.4-6.1 13.4-13.4 0-1.3-0.3-2.6-0.6-3.7-1.2 0.3-2.4 0.3-3.7 0.3-5.7 0-10.6-2.7-13.6-7-1.7 4-4.9 7.3-8.8 9-0.1 0.5-0.1 0.9-0.1 1.4 0 7.3 6.1 13.4 13.4 13.4z m0-30c9.2 0 16.6 7.4 16.6 16.6s-7.4 16.6-16.6 16.6-16.6-7.4-16.6-16.6 7.4-16.6 16.6-16.6z m5 16.2c1.2 0 2.1 0.9 2.1 2s-0.9 2.2-2.1 2.2-2.1-1-2.1-2.2 0.9-2 2.1-2z m-10 0c1.2 0 2.1 0.9 2.1 2s-0.9 2.2-2.1 2.2-2.1-1-2.1-2.2 0.9-2 2.1-2z' })
+	        )
+	    );
+	};
+	
+	exports.default = MdFace;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _call = __webpack_require__(72);
+	
+	var _call2 = _interopRequireDefault(_call);
+	
+	var _videoCall = __webpack_require__(74);
+	
+	var _videoCall2 = _interopRequireDefault(_videoCall);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var TopBar = function (_Component) {
+	    _inherits(TopBar, _Component);
+	
+	    function TopBar() {
+	        _classCallCheck(this, TopBar);
+	
+	        return _possibleConstructorReturn(this, (TopBar.__proto__ || Object.getPrototypeOf(TopBar)).apply(this, arguments));
+	    }
+	
+	    _createClass(TopBar, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'top-bar' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'username' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u0130rem'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'user-call-icons' },
+	                    _react2.default.createElement(_call2.default, { size: 30 }),
+	                    _react2.default.createElement(_videoCall2.default, { size: 30 })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return TopBar;
+	}(_react.Component);
+	
+	exports.default = TopBar;
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MessageList = function (_Component) {
+	    _inherits(MessageList, _Component);
+	
+	    function MessageList() {
+	        _classCallCheck(this, MessageList);
+	
+	        return _possibleConstructorReturn(this, (MessageList.__proto__ || Object.getPrototypeOf(MessageList)).apply(this, arguments));
+	    }
+	
+	    _createClass(MessageList, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "message-list" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-you" },
+	                    _react2.default.createElement("img", { src: "./static/images/irem.jpg", alt: "" }),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-me" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    ),
+	                    _react2.default.createElement("img", { src: "./static/images/enes.jpg", alt: "" })
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-you" },
+	                    _react2.default.createElement("img", { src: "./static/images/irem.jpg", alt: "" }),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-me" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    ),
+	                    _react2.default.createElement("img", { src: "./static/images/enes.jpg", alt: "" })
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-you" },
+	                    _react2.default.createElement("img", { src: "./static/images/irem.jpg", alt: "" }),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "message from-me" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "message-container" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi blanditiis necessitatibus quod rem, accusamus facere, earum harum soluta molestiae magnam sed nobis similique officiis repudiandae itaque quos quia mollitia dolorem."
+	                        )
+	                    ),
+	                    _react2.default.createElement("img", { src: "./static/images/enes.jpg", alt: "" })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MessageList;
+	}(_react.Component);
+	
+	exports.default = MessageList;
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _attachFile = __webpack_require__(90);
+	
+	var _attachFile2 = _interopRequireDefault(_attachFile);
+	
+	var _send = __webpack_require__(91);
+	
+	var _send2 = _interopRequireDefault(_send);
+	
+	var _face = __webpack_require__(92);
+	
+	var _face2 = _interopRequireDefault(_face);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Input = function (_Component) {
+	    _inherits(Input, _Component);
+	
+	    function Input() {
+	        _classCallCheck(this, Input);
+	
+	        return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
+	    }
+	
+	    _createClass(Input, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'input-container' },
+	                _react2.default.createElement('input', { type: 'text', placeholder: 'Type your message here...', className: 'message-input' }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'input-buttons' },
+	                    _react2.default.createElement(_face2.default, { size: 25 }),
+	                    _react2.default.createElement(_attachFile2.default, { size: 25 }),
+	                    _react2.default.createElement(_send2.default, { size: 25 })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Input;
+	}(_react.Component);
+	
+	exports.default = Input;
 
 /***/ })
 /******/ ]);

@@ -22,7 +22,7 @@ export default class UserList extends Component {
                         <div className="unseen-messages">1</div>
                     </li>
                     <li>
-                        <img src="./static/images/enes.jpg" alt="" />
+                        <img src="./static/images/burak.jpg" alt="" />
                         <div className="name-and-last-message">
                             <span className="name">Burak</span>
                             <span className="last-message">Nasıl gidiyor?</span>

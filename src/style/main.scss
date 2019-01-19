@@ -342,6 +342,66 @@
 
             .message-list {
                 flex: 1;
+
+                display: flex;
+                flex-direction: column;
+
+                .message {
+                    display: flex;
+                    flex-direction: row;
+
+                    &.from-you {
+                        justify-content: flex-start;
+                    }
+
+                    &.from-me {
+                        justify-content: flex-end;
+
+                        .message-container {
+                            p {
+                                color: white;
+                                background: #35a2cd;
+                                // background: -moz-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
+                                // background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(136, 217, 247, 1)), color-stop(86%, rgba(37, 151, 196, 1)), color-stop(100%, rgba(37, 151, 196, 1)));
+                                // background: -webkit-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
+                                // background: -o-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
+                                // background: -ms-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
+                                // background: linear-gradient(to bottom, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
+                                // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#88d9f7', endColorstr='#2597c4', GradientType=0);
+
+                            }
+                        }
+                    }
+
+                    box-sizing: border-box;
+                    padding: 0 1em;
+
+                    :first-child {
+                        margin-right: .8em;
+                    }
+
+                    img {
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                        align-self: flex-end;
+                    }
+
+                    .message-container {
+                        box-sizing: border-box;
+                        padding: .5em;
+
+                        width: calc(100% - 200px);
+
+                        p {
+                            width: 100%;
+                            box-sizing: border-box;
+                            padding: 1em;
+                            border-radius: 5px;
+                            background: #e2e2e2;
+                        }
+                    }
+                }
             }
 
             .input-container {
@@ -360,9 +420,36 @@
                     background: rgba(0, 0, 0, 0);
                     color: #092935;
                 }
+
+                .input-buttons {
+                    svg {
+                        box-sizing: border-box;
+
+                        border-radius: 50%;
+                        color: gray;
+                        cursor: pointer;
+
+                        &:last-child {
+                            background: #32aada;
+                            color: white;
+                            padding: 8px;
+
+                            width: 35px;
+                            height: 35px;
+
+                        }
+
+                        &:not(:last-child) {
+                            margin-right: .5em;
+                        }
+                    }
+
+
+
+                }
+
+
             }
         }
     }
 }
-
-.page {}
