@@ -3,74 +3,11 @@
     <script>
 
     </script>
-
-    <script>
-        window.$ = require("jquery");
-        $(function () {
-            var socket = require('socket.io-client')('http://localhost:3000');
-            var $left = $('.left');
-            var $right = $('.right');
-            var $name = $('#name');
-            var $sendname = $('#sendname');
-            var options = [{
-                title: "New client",
-                body: "Someone has connected",
-                icon: path.join(__dirname, "icon.png")
-            }]
-
-            function showNotify() {
-                new Notification(options[0].title, options[0]);
-            }
-            $left.hide();
-            $right.hide();
-
-            $name.keydown(function (e) {
-                if (e.keyCode == 13) {
-                    alert("enter")
-                    socket.emit('new user', $name.val(), function (data) {
-                        if (data) {
-                            $('#login').hide(500);
-                            $left.show();
-                            $right.show();
-                            $('#message').fadeIn();
-                        }
-                    })
-                }
-            })
-
-            $('textarea').keydown(function (e) {
-                if (e.keyCode == 13) {
-                    socket.emit('send message', $('#message').val());
-                    $('#message').val('');
-                    $('#message').focus();
-                    return false;
-                }
-            })
-            $('#send').click(function () {
-                socket.emit('send message', $('#message').val());
-                $('#message').val('');
-                $('#message').focus();
-            })
-
-            socket.on('new message', function (data) {
-                $('.table').append('<tr class="active"><td><strong>' + data.user + '</strong>: ' + data
-                    .msg + '</td></tr>');
-            })
-            socket.on('get users', function (data) {
-                var html = '';
-                for (i = 0; i < data.length; i++) {
-                    html += '<li><div id="pic"></div><div id="username">' + data[i] + '</div></li>';
-                }
-                $('#onlines').html(html);
-                showNotify();
-            })
-        })
-    </script>
 </head>
 
 <body>
     <div id="app"></div>
- 
+
     <script type="text/javascript" src="./static/bundles/main.js"></script>
     <script src="http://localhost:35729/livereload.js"></script>
 </body>
