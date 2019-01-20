@@ -346,38 +346,68 @@
                 display: flex;
                 flex-direction: column;
 
+                overflow: auto;
+
+                box-sizing: border-box;
+                padding: .5em;
+
                 .message {
-                    display: flex;
+                    display: table;
                     flex-direction: row;
+                    margin: .5em 0;
+                    width: 100%;
+
+                    .content-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+
+                        :first-child {
+                            margin-right: .8em;
+                        }
+
+                        .message-container {
+                            box-sizing: border-box;
+                            padding: 0 .5em;
+
+                            width: calc(100% - 200px);
+                            max-width: 600px;
+
+                            p {
+                                width: 100%;
+                                box-sizing: border-box;
+                                padding: 1em;
+                                border-radius: 5px;
+                                background: #e2e2e2;
+
+                                margin-bottom: 0;
+
+                                &:not(:last-child) {
+                                    margin-bottom: .2em;
+                                }
+                            }
+                        }
+                    }
 
                     &.from-you {
-                        justify-content: flex-start;
+                        .content-wrapper {
+                            justify-content: flex-start;
+                        }
                     }
 
                     &.from-me {
-                        justify-content: flex-end;
+                        .content-wrapper {
+                            justify-content: flex-end;
+                        }
 
                         .message-container {
                             p {
                                 color: white;
                                 background: #35a2cd;
-                                // background: -moz-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
-                                // background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(136, 217, 247, 1)), color-stop(86%, rgba(37, 151, 196, 1)), color-stop(100%, rgba(37, 151, 196, 1)));
-                                // background: -webkit-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
-                                // background: -o-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
-                                // background: -ms-linear-gradient(top, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
-                                // background: linear-gradient(to bottom, rgba(136, 217, 247, 1) 0%, rgba(37, 151, 196, 1) 86%, rgba(37, 151, 196, 1) 100%);
-                                // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#88d9f7', endColorstr='#2597c4', GradientType=0);
-
                             }
                         }
-                    }
-
-                    box-sizing: border-box;
-                    padding: 0 1em;
-
-                    :first-child {
-                        margin-right: .8em;
                     }
 
                     img {
@@ -387,20 +417,7 @@
                         align-self: flex-end;
                     }
 
-                    .message-container {
-                        box-sizing: border-box;
-                        padding: .5em;
 
-                        width: calc(100% - 200px);
-
-                        p {
-                            width: 100%;
-                            box-sizing: border-box;
-                            padding: 1em;
-                            border-radius: 5px;
-                            background: #e2e2e2;
-                        }
-                    }
                 }
             }
 
