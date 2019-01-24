@@ -1,21 +1,24 @@
-####Screenshot
-<img src="img/1.JPG" alt="Screenshot at Windows 10" width="50%"/>
-<img src="img/2.JPG" alt="Screenshot at Windows 10" width="50%"/>
-<img src="img/3.JPG" alt="Screenshot at Windows 10" width="50%"/>
+# Chatectron
+Web socket implementation with Socket.io & Electron & React JS
 
-## Using
-Install dependencies
+## Building & Installing
+
+Install npm packages. You may need `--unsafe-perm` parameter to instal `node-sass` without error in some linux disturbitions.
+ 
 ```shell
-npm install
+npm install --unsafe-perm
 ```
-Run the server
+
+Run development server
 ```shell
-node server
+npm run webpack
 ```
-Run the app in another shell
+
+Run Electron in another terminal window
 ```shell
-npm start
+npm run start
 ```
+
 To build the app
 ```shell
 npm win32,win64,linux32,linux64,osx
