@@ -1,7 +1,7 @@
-var path = require("path");
-var BundleTracker = require('webpack-bundle-tracker');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const path = require("path");
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const Visualizer = require('webpack-visualizer-plugin')
 
 module.exports = {
 	context: __dirname,
@@ -14,24 +14,27 @@ module.exports = {
 		path: path.resolve('./static/bundles/'),
 		filename: "[name].js",
 	},
-
 	plugins: [
-		new BundleTracker({ filename: './webpack-stats.json' }),
-		new LiveReloadPlugin({})
+		new LiveReloadPlugin({}),
+		new Visualizer({
+			filename:'.statictics.html'
+		})
 	],
-
 	module: {
-		loaders: [
+		rules: [
 			{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-			{ test: /\.scss$/, loaders: ["style", "css", "sass"], },
+			{ test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"], },
 			{ test: /\.svg$/, loaders: ["svg-inline"] }
 		]
 	},
-	sassLoader: {
-		includePaths: [path.resolve(__dirname, "./front-end/sass")]
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin({
+				test: /\.js(\?.*)?$/i
+			})
+		]
 	},
 	resolve: {
-		modulesDirectories: ['node_modules', 'bower_components'],
-		extensions: ['', '.js', '.jsx']
+		extensions: ['*', '.js', '.jsx']
 	},
 }
