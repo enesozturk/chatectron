@@ -1,25 +1,19 @@
-var app = require('http').createServer(handler)
-var io = require('socket.io')(app);
-var fs = require('fs');
+const express = require('express');
+const http = require('http');
+const WebSocket = require('ws');
 
-app.listen(80);
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
-function handler(req, res) {
-    fs.readFile(__dirname + '/index.html',
-        function (err, data) {
-            if (err) {
-                res.writeHead(500);
-                return res.end('Error loading index.html');
-            }
+wss.on('connection', ws => {
+	ws.on('message', message => {
+		console.log('received: %s', message);
+		ws.send(message);
+	});
+});
 
-            res.writeHead(200);
-            res.end(data);
-        });
-}
-
-io.on('connection', function (socket) {
-    socket.emit('chat', "Welcome to Chatectron!");
-    socket.on('msg', function (data) {
-        console.log(data);
-    });
+//start our server
+server.listen(process.env.PORT || 8000, () => {
+	console.log(`Server started on port ${server.address().port} :)`);
 });

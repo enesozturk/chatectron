@@ -13,7 +13,7 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
   mainWindow = new BrowserWindow({
     minWidth: 400, minHeight: 600,
-    transparent: true,
+    transparent: false,
     frame: true
   });
   mainWindow.loadURL('file://' + __dirname + '/index.html');

@@ -17,6 +17,8 @@
     },
     "dependencies": {
         "animejs": "^3.0.1",
+        "electron-react-devtools": "^0.5.3",
+        "express": "^4.16.4",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "react-icons": "2.2.7",
@@ -27,7 +29,8 @@
         "redux-thunk": "^2.3.0",
         "socket.io": "^2.2.0",
         "socket.io-client": "^2.2.0",
-        "superagent": "^4.1.0"
+        "superagent": "^4.1.0",
+        "ws": "^6.1.4"
     },
     "devDependencies": {
         "@babel/core": "^7.3.3",
@@ -39,8 +42,8 @@
         "babel": "^6.23.0",
         "babel-loader": "^8.0.5",
         "css-loader": "^2.1.0",
+        "electron": "^4.0.5",
         "electron-packager": "^6.0.0",
-        "electron-prebuilt": "latest",
         "extract-text-webpack-plugin": "^1.0.1",
         "node-sass": "^4.11.0",
         "sass-loader": "^7.1.0",

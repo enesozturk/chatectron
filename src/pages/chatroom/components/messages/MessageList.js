@@ -1,126 +1,77 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+const FromMe = ({ messages }) => {
+	return (
+		<div className="message from-me">
+			<div className="content-wrapper">
+				<div className="message-container">
+					{messages.map((item, i) => {
+						return <p key={item.message + item.i}>{item.message}</p>;
+					})}
+				</div>
+				<img src="./static/images/enes.jpg" alt="" />
+			</div>
+		</div>
+	);
+};
+
+const FromYou = ({ messages }) => {
+	return (
+		<div className="message from-you">
+			<div className="content-wrapper">
+				<img src="./static/images/irem.jpg" alt="" />
+				<div className="message-container">
+					{messages.map((item, i) => {
+						return <p key={item.message + item.i}>{item.message}</p>;
+					})}
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default class MessageList extends Component {
-    render() {
-        return (
-            <div className="message-list">
-                <div className="message from-you">
-                    <div className="content-wrapper">
-                        <img src="./static/images/irem.jpg" alt="" />
-                        <div className="message-container">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                        </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                        </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Commodi blanditiis
-                                necessitatibus quod rem, accusamus facere,
-                                earum harum soluta molestiae magnam
-                                sed nobis similique officiis
-                                repudiandae itaque quos quia
-                                mollitia dolorem.
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="message from-me">
-                    <div className="content-wrapper">
-                        <div className="message-container">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Commodi blanditiis
-                                necessitatibus quod rem, accusamus facere,
-                                earum harum soluta molestiae magnam
-                                sed nobis similique officiis
-                                repudiandae itaque quos quia
-                                mollitia dolorem.
-                        </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                        </p>
-                        </div>
-                        <img src="./static/images/enes.jpg" alt="" />
-                    </div>
-                </div>
-                <div className="message from-you">
-                    <div className="content-wrapper">
-                        <img src="./static/images/irem.jpg" alt="" />
-                        <div className="message-container">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Commodi blanditiis
-                                necessitatibus quod rem, accusamus facere,
-                                earum harum soluta molestiae magnam
-                                sed nobis similique officiis
-                                repudiandae itaque quos quia
-                                mollitia dolorem.
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="message from-me">
-                    <div className="message-container">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Commodi blanditiis
-                            necessitatibus quod rem, accusamus facere,
-                            earum harum soluta molestiae magnam
-                            sed nobis similique officiis
-                            repudiandae itaque quos quia
-                            mollitia dolorem.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.
-                        </p>
-                    </div>
-                    <img src="./static/images/enes.jpg" alt="" />
-                </div>
-                <div className="message from-you">
-                    <img src="./static/images/irem.jpg" alt="" />
-                    <div className="message-container">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Commodi blanditiis
-                            necessitatibus quod rem, accusamus facere,
-                            earum harum soluta molestiae magnam
-                            sed nobis similique officiis
-                            repudiandae itaque quos quia
-                            mollitia dolorem.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-                <div className="message from-me">
-                    <div className="message-container">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Commodi blanditiis
-                            necessitatibus quod rem, accusamus facere,
-                            earum harum soluta molestiae magnam
-                            sed nobis similique officiis
-                            repudiandae itaque quos quia
-                            mollitia dolorem.
-                        </p>
-                    </div>
-                    <img src="./static/images/enes.jpg" alt="" />
-                </div>
-                 */}
-            </div>
-        )
-    }
+	componentDidMount = () => {};
+
+	groupMessages = messages => {
+		console.log(messages);
+		let user = null,
+			usersMessages = [],
+			groupedMessages = [];
+		if (messages) {
+			messages.forEach((item, i) => {
+				if (!user) {
+					user = item.user;
+					usersMessages.push({ message: item.message });
+				} else {
+					if (user == item.user) {
+						usersMessages.push({ message: item.message });
+					} else {
+						groupedMessages.push({ user: user, messages: usersMessages });
+						user = item.user;
+						usersMessages.push({ message: item.message });
+					}
+					if (i == messages.length - 1) {
+						groupedMessages.push({ user: user, messages: usersMessages });
+					}
+				}
+			});
+			console.log(groupedMessages);
+			return groupedMessages;
+		}
+	};
+
+	render() {
+		const { messages } = this.props;
+		const groupedMessages = this.groupMessages(messages);
+
+		return (
+			<div className="message-list">
+				{groupedMessages.map((item, i) => {
+					if (item.user == 'enes') return <FromMe key={i} messages={item.messages} />;
+					else return <FromYou key={i} messages={item.messages} />;
+				})}
+			</div>
+		);
+	}
 }

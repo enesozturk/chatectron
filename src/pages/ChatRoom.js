@@ -1,42 +1,46 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Messages from './chatroom/Messages'
+import Messages from './chatroom/Messages';
 import { Users } from './chatroom/Users';
 
-import io from 'socket.io-client'
-const socket = io('http://localhost');
-
+const url = () => `ws://192.168.2.29:8000/`;
+export let socket = null;
 
 export class ChatRoom extends Component {
+	componentWillMount = () => {};
 
-    componentWillMount = () => { }
+	componentDidMount() {
+		socket = new WebSocket(url());
 
-    componentDidMount() {
-        socket.on('chat', (data) => {
-            console.log(data);
-        });
+		socket.onopen = e => {
+			socket.onmessage = e => {
+				let messages = this.props.message.messages;
+				console.log(e.data);
+				messages.push(JSON.parse(e.data));
+				this.props.addMessage(messages);
+			};
+		};
+	}
 
-        const user = this.props.user
-        socket.emit('msg', `Hello! I'm ${user}`);
-    }
-
-    render() {
-        const username = this.props.user.username
-        return (
-            <div className="page page--chat">
-                <Users user={this.props.user.username} />
-                <Messages />
-            </div>
-        )
-    }
+	render() {
+		const username = this.props.user.username;
+		return (
+			<div className="page page--chat">
+				<Users user={this.props.user.username} />
+				<Messages />
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = state => ({
+	message: state.message
+});
 
 const mapDispatchToProps = dispatch => ({
-    login: payload =>
-        dispatch({ type: "LOGIN", payload })
-})
+	login: payload => dispatch({ type: 'LOGIN', payload }),
+	addMessage: payload => dispatch({ type: 'ADD_MESSAGE', payload })
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom)
+export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);
