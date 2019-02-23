@@ -30104,7 +30104,6 @@ function (_Component) {
       socket.onopen = function (e) {
         socket.onmessage = function (e) {
           var messages = _this2.props.message.messages;
-          console.log(e.data);
           messages.push(JSON.parse(e.data));
 
           _this2.props.addMessage(messages);
@@ -30612,23 +30611,22 @@ var MessageList =
 function (_Component) {
   _inherits(MessageList, _Component);
 
-  function MessageList() {
-    var _getPrototypeOf2;
-
+  function MessageList(props) {
     var _this;
 
     _classCallCheck(this, MessageList);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageList).call(this, props));
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MessageList)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      var user = localStorage.getItem('user');
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {});
+      _this.setState({
+        user: user
+      });
+    });
 
     _defineProperty(_assertThisInitialized(_this), "groupMessages", function (messages) {
-      console.log(messages);
       var user = null,
           usersMessages = [],
           groupedMessages = [];
@@ -30651,36 +30649,41 @@ function (_Component) {
                 messages: usersMessages
               });
               user = item.user;
+              usersMessages = [];
               usersMessages.push({
                 message: item.message
               });
             }
+          }
 
-            if (i == messages.length - 1) {
-              groupedMessages.push({
-                user: user,
-                messages: usersMessages
-              });
-            }
+          if (i == messages.length - 1) {
+            groupedMessages.push({
+              user: user,
+              messages: usersMessages
+            });
           }
         });
-        console.log(groupedMessages);
         return groupedMessages;
-      }
+      } else return [];
     });
 
+    _this.state = {
+      user: null
+    };
     return _this;
   }
 
   _createClass(MessageList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var messages = this.props.messages;
       var groupedMessages = this.groupMessages(messages);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, groupedMessages.map(function (item, i) {
-        if (item.user == 'enes') return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromMe, {
+      }, this.state.user && groupedMessages.map(function (item, i) {
+        if (item.user == _this2.state.user) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromMe, {
           key: i,
           messages: item.messages
         });else return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromYou, {

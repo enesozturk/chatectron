@@ -16,7 +16,6 @@ export class ChatRoom extends Component {
 		socket.onopen = e => {
 			socket.onmessage = e => {
 				let messages = this.props.message.messages;
-				console.log(e.data);
 				messages.push(JSON.parse(e.data));
 				this.props.addMessage(messages);
 			};

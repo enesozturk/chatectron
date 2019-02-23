@@ -31,10 +31,18 @@ const FromYou = ({ messages }) => {
 };
 
 export default class MessageList extends Component {
-	componentDidMount = () => {};
+	constructor(props) {
+		super(props);
+		this.state = {
+			user: null
+		};
+	}
+	componentDidMount = () => {
+		const user = localStorage.getItem('user');
+		this.setState({ user });
+	};
 
 	groupMessages = messages => {
-		console.log(messages);
 		let user = null,
 			usersMessages = [],
 			groupedMessages = [];
@@ -49,16 +57,16 @@ export default class MessageList extends Component {
 					} else {
 						groupedMessages.push({ user: user, messages: usersMessages });
 						user = item.user;
+						usersMessages = [];
 						usersMessages.push({ message: item.message });
 					}
-					if (i == messages.length - 1) {
-						groupedMessages.push({ user: user, messages: usersMessages });
-					}
+				}
+				if (i == messages.length - 1) {
+					groupedMessages.push({ user: user, messages: usersMessages });
 				}
 			});
-			console.log(groupedMessages);
 			return groupedMessages;
-		}
+		} else return [];
 	};
 
 	render() {
@@ -67,10 +75,11 @@ export default class MessageList extends Component {
 
 		return (
 			<div className="message-list">
-				{groupedMessages.map((item, i) => {
-					if (item.user == 'enes') return <FromMe key={i} messages={item.messages} />;
-					else return <FromYou key={i} messages={item.messages} />;
-				})}
+				{this.state.user &&
+					groupedMessages.map((item, i) => {
+						if (item.user == this.state.user) return <FromMe key={i} messages={item.messages} />;
+						else return <FromYou key={i} messages={item.messages} />;
+					})}
 			</div>
 		);
 	}
