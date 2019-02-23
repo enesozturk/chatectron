@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Messages from './chatroom/Messages';
 import { Users } from './chatroom/Users';
 
-const url = () => `ws://192.168.2.29:8000/`;
+const url = () => `ws://localhost:8081/`;
 export let socket = null;
 
 export class ChatRoom extends Component {

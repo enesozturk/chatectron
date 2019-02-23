@@ -6,14 +6,27 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-wss.on('connection', ws => {
-	ws.on('message', message => {
-		console.log('received: %s', message);
-		ws.send(message);
+wss.broadcast = function broadcast(data) {
+	wss.clients.forEach(function each(client) {
+		if (client.readyState === WebSocket.OPEN) {
+			client.send(data);
+		}
+	});
+};
+
+wss.on('connection', function connection(ws) {
+	ws.on('message', function incoming(data) {
+		console.log(data);
+
+		wss.clients.forEach(function each(client) {
+			if (client !== ws && client.readyState === WebSocket.OPEN) {
+				client.send(data);
+			}
+		});
 	});
 });
 
 //start our server
-server.listen(process.env.PORT || 8000, () => {
+server.listen(process.env.PORT || 8081, () => {
 	console.log(`Server started on port ${server.address().port} :)`);
 });

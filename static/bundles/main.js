@@ -30067,7 +30067,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var url = function url() {
-  return "ws://192.168.2.29:8000/";
+  return "ws://localhost:8081/";
 };
 
 var socket = null;
