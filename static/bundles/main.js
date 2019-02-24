@@ -86,6 +86,39 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./mockdata/users.js":
+/*!***************************!*\
+  !*** ./mockdata/users.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  id: 0,
+  username: 'anonymus',
+  photo_thumbnail: 'empty-avatar.jpg'
+}, {
+  id: 1,
+  username: 'enes',
+  photo_thumbnail: 'enes.jpg'
+}, {
+  id: 2,
+  username: 'burak',
+  photo_thumbnail: 'burak.jpg'
+}, {
+  id: 3,
+  username: 'irem',
+  photo_thumbnail: 'irem.jpg'
+}, {
+  id: 4,
+  username: 'berkay',
+  photo_thumbnail: 'berkay.jpg'
+}]);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
@@ -30434,6 +30467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/lib/md/face */ "./node_modules/react-icons/lib/md/face.js");
 /* harmony import */ var react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../ChatRoom */ "./src/pages/ChatRoom.js");
+/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30453,6 +30487,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -30486,10 +30521,26 @@ function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "findUserWithName", function (username) {
+      var user = _mockdata_users__WEBPACK_IMPORTED_MODULE_5__["default"].find(function (u) {
+        return u.username == username;
+      });
+      if (!user) user = {
+        id: 0,
+        username: 'anonymus',
+        photo_thumbnail: 'empty-avatar.jpg'
+      };
+      return user;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "sendMessage", function () {
-      var user = localStorage.getItem('user');
+      var loggedInUser = localStorage.getItem('user');
+
+      var user = _this.findUserWithName(loggedInUser); // if user is not exist in users list he will send messages as anonymus
+
+
       _ChatRoom__WEBPACK_IMPORTED_MODULE_4__["socket"].send(JSON.stringify({
-        user: user,
+        user: user.username,
         message: _this.state.message
       }));
 
@@ -30548,6 +30599,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MessageList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30570,8 +30622,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var FromMe = function FromMe(_ref) {
-  var messages = _ref.messages;
+  var user = _ref.user,
+      messages = _ref.messages;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "message from-me"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -30583,19 +30637,20 @@ var FromMe = function FromMe(_ref) {
       key: item.message + item.i
     }, item.message);
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "./static/images/enes.jpg",
+    src: "./static/images/".concat(user.photo_thumbnail),
     alt: ""
   })));
 };
 
 var FromYou = function FromYou(_ref2) {
-  var messages = _ref2.messages;
+  var user = _ref2.user,
+      messages = _ref2.messages;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "message from-you"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content-wrapper"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "./static/images/irem.jpg",
+    src: "./static/images/".concat(user.photo_thumbnail),
     alt: ""
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "message-container"
@@ -30619,11 +30674,28 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageList).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      var user = localStorage.getItem('user');
+      var loggedInUser = localStorage.getItem('user');
+
+      var user = _this.findUserWithName(loggedInUser);
+
+      console.log(user);
 
       _this.setState({
         user: user
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "findUserWithName", function (username) {
+      var user = _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"].find(function (u) {
+        return u.username == username;
+      });
+      if (!user) user = {
+        id: 0,
+        username: 'anonymus',
+        photo_thumbnail: 'empty-avatar.jpg'
+      }; // and will get messages as username
+
+      return user;
     });
 
     _defineProperty(_assertThisInitialized(_this), "groupMessages", function (messages) {
@@ -30683,11 +30755,13 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
       }, this.state.user && groupedMessages.map(function (item, i) {
-        if (item.user == _this2.state.user) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromMe, {
+        if (item.user == _this2.state.user.username) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromMe, {
           key: i,
+          user: _this2.state.user,
           messages: item.messages
         });else return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FromYou, {
           key: i,
+          user: _this2.findUserWithName(item.user),
           messages: item.messages
         });
       }));
@@ -31036,6 +31110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31046,13 +31121,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -31062,52 +31140,47 @@ function (_Component) {
   _inherits(UserList, _Component);
 
   function UserList() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, UserList);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UserList).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(UserList)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      console.log(_mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    });
+
+    return _this;
   }
 
   _createClass(UserList, [{
     key: "render",
     value: function render() {
+      var user = localStorage.getItem('user');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-list"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "./static/images/berkay.jpg",
-        alt: ""
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "name-and-last-message"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "name"
-      }, "Berkay"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "last-message"
-      }, "G\xF6r\xFC\u015F\xFCr\xFC\xFCz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "unseen-messages"
-      }, "4")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "active"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "./static/images/irem.jpg",
-        alt: ""
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "name-and-last-message"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "name"
-      }, "\u0130rem"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "last-message"
-      }, "Sorun de\u011Fil")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "unseen-messages"
-      }, "1")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "./static/images/burak.jpg",
-        alt: ""
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "name-and-last-message"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "name"
-      }, "Burak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "last-message"
-      }, "Nas\u0131l gidiyor?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "unseen-messages all-seen"
-      }, "0"))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"] && _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"].filter(function (u) {
+        return u.username != user;
+      }).map(function (item, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "./static/images/".concat(item.photo_thumbnail),
+          alt: ""
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "name-and-last-message"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "name"
+        }, item.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "last-message"
+        }, "G\xF6r\xFC\u015F\xFCr\xFC\xFCz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "unseen-messages"
+        }, "4"));
+      })));
     }
   }]);
 

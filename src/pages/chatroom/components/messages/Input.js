@@ -5,6 +5,7 @@ import Send from 'react-icons/lib/md/send';
 import Face from 'react-icons/lib/md/face';
 
 import { socket } from '../../../ChatRoom';
+import users from '../../../../../mockdata/users';
 
 export default class Input extends Component {
 	constructor(props) {
@@ -26,9 +27,16 @@ export default class Input extends Component {
 		}
 	};
 
+	findUserWithName = username => {
+		let user = users.find(u => u.username == username);
+		if (!user) user = { id: 0, username: 'anonymus', photo_thumbnail: 'empty-avatar.jpg' };
+		return user;
+	};
+
 	sendMessage = () => {
-		const user = localStorage.getItem('user');
-		socket.send(JSON.stringify({ user: user, message: this.state.message }));
+		const loggedInUser = localStorage.getItem('user');
+		let user = this.findUserWithName(loggedInUser); // if user is not exist in users list he will send messages as anonymus
+		socket.send(JSON.stringify({ user: user.username, message: this.state.message }));
 		this.setState({ message: '' });
 	};
 
