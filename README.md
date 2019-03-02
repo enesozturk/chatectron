@@ -14,7 +14,12 @@ Run development server. Use `yarn run dev` for production
 yarn run dev
 ```
 
-Run Electron in another terminal window
+Run web server to bind socket connections in another tab. It will run in port 8081. You can it in `server.js` file.
+```shell
+node server
+```
+
+Run Electron in another tab.
 ```shell
 yarn run start
 ```
