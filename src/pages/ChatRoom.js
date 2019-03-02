@@ -18,6 +18,9 @@ export class ChatRoom extends Component {
 				let messages = this.props.message.messages;
 				messages.push(JSON.parse(e.data));
 				this.props.addMessage(messages);
+
+				const messageList = document.querySelector('.message-list');
+				messageList.scrollTop = messageList.scrollHeight;
 			};
 		};
 	}

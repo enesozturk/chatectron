@@ -30140,6 +30140,9 @@ function (_Component) {
           messages.push(JSON.parse(e.data));
 
           _this2.props.addMessage(messages);
+
+          var messageList = document.querySelector('.message-list');
+          messageList.scrollTop = messageList.scrollHeight;
         };
       };
     }
@@ -30539,14 +30542,16 @@ function (_Component) {
       var user = _this.findUserWithName(loggedInUser); // if user is not exist in users list he will send messages as anonymus
 
 
-      _ChatRoom__WEBPACK_IMPORTED_MODULE_4__["socket"].send(JSON.stringify({
-        user: user.username,
-        message: _this.state.message
-      }));
+      if (_this.state.message != '') {
+        _ChatRoom__WEBPACK_IMPORTED_MODULE_4__["socket"].send(JSON.stringify({
+          user: user.username,
+          message: _this.state.message
+        }));
 
-      _this.setState({
-        message: ''
-      });
+        _this.setState({
+          message: ''
+        });
+      }
     });
 
     _this.state = {
@@ -30677,8 +30682,6 @@ function (_Component) {
       var loggedInUser = localStorage.getItem('user');
 
       var user = _this.findUserWithName(loggedInUser);
-
-      console.log(user);
 
       _this.setState({
         user: user

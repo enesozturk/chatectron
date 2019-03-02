@@ -36,8 +36,10 @@ export default class Input extends Component {
 	sendMessage = () => {
 		const loggedInUser = localStorage.getItem('user');
 		let user = this.findUserWithName(loggedInUser); // if user is not exist in users list he will send messages as anonymus
-		socket.send(JSON.stringify({ user: user.username, message: this.state.message }));
-		this.setState({ message: '' });
+		if (this.state.message != '') {
+			socket.send(JSON.stringify({ user: user.username, message: this.state.message }));
+			this.setState({ message: '' });
+		}
 	};
 
 	render() {

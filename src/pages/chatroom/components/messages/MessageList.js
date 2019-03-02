@@ -41,7 +41,6 @@ export default class MessageList extends Component {
 	componentDidMount = () => {
 		let loggedInUser = localStorage.getItem('user');
 		let user = this.findUserWithName(loggedInUser);
-		console.log(user);
 		this.setState({ user });
 	};
 
