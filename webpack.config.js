@@ -17,7 +17,7 @@ module.exports = {
 	plugins: [
 		new LiveReloadPlugin({}),
 		new Visualizer({
-			filename:'.statictics.html'
+			filename:'bundle-statistics.html'
 		})
 	],
 	module: {
