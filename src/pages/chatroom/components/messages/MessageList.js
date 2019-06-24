@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import users from '../../../../../mockdata/users';
+import { MockUserData } from '../../../../../data/mock_user_data';
 
 const FromMe = ({ user, messages }) => {
 	return (
@@ -45,7 +45,7 @@ export default class MessageList extends Component {
 	};
 
 	findUserWithName = username => {
-		let user = users.find(u => u.username == username);
+		let user = MockUserData.find(u => u.username == username);
 		if (!user) user = { id: 0, username: 'anonymus', photo_thumbnail: 'empty-avatar.jpg' }; // and will get messages as username
 		return user;
 	};

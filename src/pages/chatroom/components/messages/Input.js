@@ -5,7 +5,7 @@ import Send from 'react-icons/lib/md/send';
 import Face from 'react-icons/lib/md/face';
 
 import { socket } from '../../../ChatRoom';
-import users from '../../../../../mockdata/users';
+import { MockUserData } from '../../../../../data/mock_user_data';
 
 export default class Input extends Component {
 	constructor(props) {
@@ -28,7 +28,7 @@ export default class Input extends Component {
 	};
 
 	findUserWithName = username => {
-		let user = users.find(u => u.username == username);
+		let user = MockUserData.find(u => u.username == username);
 		if (!user) user = { id: 0, username: 'anonymus', photo_thumbnail: 'empty-avatar.jpg' };
 		return user;
 	};

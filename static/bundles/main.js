@@ -86,36 +86,47 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./mockdata/users.js":
-/*!***************************!*\
-  !*** ./mockdata/users.js ***!
-  \***************************/
-/*! exports provided: default */
+/***/ "./data/mock_user_data.js":
+/*!********************************!*\
+  !*** ./data/mock_user_data.js ***!
+  \********************************/
+/*! exports provided: MockUserData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([{
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MockUserData", function() { return MockUserData; });
+var MockUserData = [{
   id: 0,
   username: 'anonymus',
-  photo_thumbnail: 'empty-avatar.jpg'
+  photo_thumbnail: 'empty-avatar.jpg',
+  unread_messages: 2,
+  lastMessage: 'Gelecek misin?'
 }, {
   id: 1,
-  username: 'enes',
-  photo_thumbnail: 'enes.jpg'
+  username: 'Enes',
+  photo_thumbnail: 'enes.jpg',
+  unread_messages: 4,
+  lastMessage: 'Aksam bulusalim mi?'
 }, {
   id: 2,
-  username: 'burak',
-  photo_thumbnail: 'burak.jpg'
+  username: 'Burak',
+  photo_thumbnail: 'burak.jpg',
+  unread_messages: 5,
+  lastMessage: 'Derse gidecek misin?'
 }, {
   id: 3,
-  username: 'irem',
-  photo_thumbnail: 'irem.jpg'
+  username: 'Irem',
+  photo_thumbnail: 'irem.jpg',
+  unread_messages: 0,
+  lastMessage: 'Gorusuruuz'
 }, {
   id: 4,
-  username: 'berkay',
-  photo_thumbnail: 'berkay.jpg'
-}]);
+  username: 'Berkay',
+  photo_thumbnail: 'berkay.jpg',
+  unread_messages: 0,
+  lastMessage: 'Tamamdir'
+}];
 
 /***/ }),
 
@@ -30470,7 +30481,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/lib/md/face */ "./node_modules/react-icons/lib/md/face.js");
 /* harmony import */ var react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_icons_lib_md_face__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../ChatRoom */ "./src/pages/ChatRoom.js");
-/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
+/* harmony import */ var _data_mock_user_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../data/mock_user_data */ "./data/mock_user_data.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30525,7 +30536,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "findUserWithName", function (username) {
-      var user = _mockdata_users__WEBPACK_IMPORTED_MODULE_5__["default"].find(function (u) {
+      var user = _data_mock_user_data__WEBPACK_IMPORTED_MODULE_5__["MockUserData"].find(function (u) {
         return u.username == username;
       });
       if (!user) user = {
@@ -30604,7 +30615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MessageList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
+/* harmony import */ var _data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../data/mock_user_data */ "./data/mock_user_data.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30689,7 +30700,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "findUserWithName", function (username) {
-      var user = _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"].find(function (u) {
+      var user = _data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__["MockUserData"].find(function (u) {
         return u.username == username;
       });
       if (!user) user = {
@@ -31113,7 +31124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mockdata_users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../mockdata/users */ "./mockdata/users.js");
+/* harmony import */ var _data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../data/mock_user_data */ "./data/mock_user_data.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31156,7 +31167,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(UserList)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      console.log(_mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"]);
+      console.log(_data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__["MockUserData"]);
     });
 
     return _this;
@@ -31168,7 +31179,7 @@ function (_Component) {
       var user = localStorage.getItem('user');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-list"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"] && _mockdata_users__WEBPACK_IMPORTED_MODULE_1__["default"].filter(function (u) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, _data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__["MockUserData"] && _data_mock_user_data__WEBPACK_IMPORTED_MODULE_1__["MockUserData"].filter(function (u) {
         return u.username != user;
       }).map(function (item, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -31180,9 +31191,9 @@ function (_Component) {
           className: "name"
         }, item.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "last-message"
-        }, "G\xF6r\xFC\u015F\xFCr\xFC\xFCz")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, item.lastMessage)), item.unread_messages > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "unseen-messages"
-        }, "4"));
+        }, item.unread_messages));
       })));
     }
   }]);
